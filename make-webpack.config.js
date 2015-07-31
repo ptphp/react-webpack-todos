@@ -2,7 +2,7 @@
 * @Author: dmyang
 * @Date:   2015-05-18 14:16:41
 * @Last Modified by:   dmyang
-* @Last Modified time: 2015-07-31 13:39:41
+* @Last Modified time: 2015-07-31 23:21:32
 */
 
 'use strict';
@@ -52,10 +52,8 @@ function makeConf(options) {
 
         resolve: {
             // 可以直接使用npm安装依赖，前后端共享module！
-            root: ['./src', './node_modules/'],
-            alias: {
-                'zepto': path.resolve(__dirname, 'src/js/lib/zepto.js'),
-            },
+            root: ['./src'],
+            alias: {},
             extensions: ['', '.js', '.jsx', '.css', '.html', '.png', '.jpg']
         },
 
