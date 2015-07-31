@@ -1,0 +1,15 @@
+{
+    "name": "todos",
+    "script": "app.js",
+    "instances": 0,
+    "out_file": "./pm2.access.log",
+    "error_file": "./pm2.error.log",
+    "merge_logs": true,
+    "exec_interpreter" : "node",
+    "exec_mode": "cluster",
+    "max_memory_restart": "50M",
+    "watch": true,
+    "env": {
+        "NODE_ENV": "production"
+    }
+}
