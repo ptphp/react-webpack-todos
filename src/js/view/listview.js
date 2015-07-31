@@ -2,7 +2,7 @@
 * @Author: dmyang
 * @Date:   2015-07-31 14:25:50
 * @Last Modified by:   dmyang
-* @Last Modified time: 2015-08-01 00:51:56
+* @Last Modified time: 2015-08-01 01:48:25
 */
 
 'use strict';
@@ -25,7 +25,7 @@ let Raw = React.createClass({
             <li className={cls} onDoubleClick={this.editContent} ref="todo" data-status={status}>
                 <div className="view">
                     <span className="checkbox" onClick={this.toggle}></span>
-                    <span className="content">{props.content}</span>
+                    <input readOnly className="content" defaultValue={props.content} />
                     <button onClick={this.destroy} className="destroy"></button>
                 </div>
                 <input className="edit" ref="editInput" onBlur={this.editBlur}

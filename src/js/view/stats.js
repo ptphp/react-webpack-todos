@@ -2,7 +2,7 @@
 * @Author: dmyang
 * @Date:   2015-07-31 18:39:12
 * @Last Modified by:   dmyang
-* @Last Modified time: 2015-07-31 20:42:29
+* @Last Modified time: 2015-08-01 01:56:44
 */
 
 'use strict';
@@ -17,7 +17,7 @@ let Stats = React.createClass({
         return (
             <section className="stats">
                 <div className="todo-count">
-                    <strong>{props.left}</strong> item left
+                    <strong>{props.left}</strong> left
                 </div>
                 <div className="filters" onClick={this.onSelect}>
                     <a className={filter === -1 ? 'selected' : ''} data-filter="-1">All</a>

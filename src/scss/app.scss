@@ -3,6 +3,8 @@ body {
     color: #4d4d4d;
 }
 
+$padding-h: .2rem;
+
 .app {
     margin-top: 3rem;
 
@@ -12,18 +14,24 @@ body {
     }
 
     .main {
-        width: 60%;
+        width: 70%;
         margin: 1rem auto;
         box-shadow: 0 0 .2rem rgba(0, 0, 0, 0.2);
         box-sizing: border-box;
         background-color: #FFF;
     }
 
+    @media screen and (max-width: 768px) {
+        .main {
+            width: 90%;
+        }
+    }
+
     .input-form {
         input {
             box-sizing: border-box;
             width: 100%;
-            padding: .2rem;
+            padding: $padding-h;
             line-height: .6rem;
             box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
         }
@@ -35,29 +43,32 @@ body {
 
     li {
         border-bottom: 1px solid #ededed;
-        height: .8rem;
-        line-height: .8rem;
 
         .view {
             position: relative;
-            padding: 0 .2rem;
+            padding: 0 $padding-h;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            height: .8rem;
+            line-height: .8rem;
         }
 
         .checkbox {
-            display: inline-block;
-            vertical-align: middle;
             width: .4rem;
             height: .4rem;
             border-radius: 50%;
             border: 1px solid #000;
             box-sizing: border-box;
-            position: relative;
+            position: absolute;
+            top: .2rem;
         }
 
         .content {
-            display: inline-block;
-            vertical-align: middle;
-            margin-left: 5px;
+            -webkit-box-flex: 1;
+            box-flex: 1;
+            flex: 1;
+            margin-left: .5rem;
         }
 
         &[data-status="done"] {
@@ -81,6 +92,7 @@ body {
         .destroy {
             display: none;
             position: absolute;
+            z-index: 3;
             right: .1rem;
             top: 0;
             font-size: .6rem;
@@ -105,6 +117,8 @@ body {
             box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
             padding: 0 .2rem;
             box-sizing: border-box;
+            height: .8rem;
+            line-height: .8rem;
         }
 
         &.editing {
@@ -122,8 +136,11 @@ body {
 .stats {
     position: relative;
     box-sizing: border-box;
-    padding: .1rem .2rem;
+    padding: .1rem $padding-h;
     color: #999;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
 
     a {
         color: #999;
@@ -141,15 +158,19 @@ body {
     }
 
     .todo-count {
-        float: left;
-        position: relative;
-        z-index: 2;
+        // float: left;
+        // position: relative;
+        // z-index: 2;
+        width: .7rem;
     }
 
     .filters {
-        position: absolute;
-        left: 0;
-        right: 0;
+        // position: absolute;
+        // left: 0;
+        // right: 0;
+        -webkit-box-flex: 1;
+        box-flex: 1;
+        flex: 1;
         text-align: center;
 
         a {
@@ -166,9 +187,10 @@ body {
     }
 
     .clean {
-        float: right;
-        position: relative;
-        z-index: 2;
+        // float: right;
+        // position: relative;
+        // z-index: 2;
+        width: 2.1rem;
     }
 }
 
