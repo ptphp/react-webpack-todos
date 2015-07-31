@@ -2,7 +2,7 @@
 * @Author: dmyang
 * @Date:   2015-05-18 14:16:41
 * @Last Modified by:   dmyang
-* @Last Modified time: 2015-07-31 23:21:32
+* @Last Modified time: 2015-08-01 01:02:42
 */
 
 'use strict';
@@ -37,11 +37,10 @@ function makeConf(options) {
         entry: genEntries(),
 
         output: {
-            // 在dev模式下，__build目录是虚拟的，webpack的dev server存储在内存里
+            // 在debug模式下，__build目录是虚拟的，webpack的dev server存储在内存里
             path: path.resolve(debug ? '__build' : 'assets/'),
             filename: debug ? '[name].js' : 'js/[hash:8].[name].min.js',
             chunkFilename: debug ? '[name].js' : 'js/[chunkhash:8].chunk.js',
-            // sourceMapFilename: '[hash].map',
             hotUpdateChunkFilename: debug ?'[name].js' : 'js/[id].[hash:8].hot-update.js',
             publicPath: ''
         },
@@ -100,10 +99,10 @@ function makeConf(options) {
 
     if(debug) {
         // css文件独立加载
-        // config.plugins.push(new ExtractTextPlugin('channel.css?[chunkhash]'));
+        // config.plugins.push(new ExtractTextPlugin('app.css?[chunkhash]'));
     } else {
         // 自动生成入口文件，入口js名必须和入口文件名相同
-        // 例如，频道页的入口文件是channel.html，那么在js目录下必须有一个channel.js作为入口文件
+        // 例如，a页的入口文件是a.html，那么在js目录下必须有一个a.js作为入口文件
         var pages = fs.readdirSync(pageSrc);
 
         pages.forEach(function(filename) {

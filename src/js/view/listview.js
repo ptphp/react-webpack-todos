@@ -2,7 +2,7 @@
 * @Author: dmyang
 * @Date:   2015-07-31 14:25:50
 * @Last Modified by:   dmyang
-* @Last Modified time: 2015-08-01 00:24:00
+* @Last Modified time: 2015-08-01 00:51:56
 */
 
 'use strict';
@@ -22,13 +22,13 @@ let Raw = React.createClass({
         let cls = this.state.editing ? 'editing' : '';
 
         return (
-            <li className={cls} ref="todo" data-status={status}>
+            <li className={cls} onDoubleClick={this.editContent} ref="todo" data-status={status}>
                 <div className="view">
                     <span className="checkbox" onClick={this.toggle}></span>
-                    <span onDoubleClick={this.editContent} className="content">{props.content}</span>
+                    <span className="content">{props.content}</span>
                     <button onClick={this.destroy} className="destroy"></button>
                 </div>
-                <input className="edit" onBlur={this.editBlur}
+                <input className="edit" ref="editInput" onBlur={this.editBlur}
                     defaultValue={props.content} />
             </li>
         );
@@ -46,6 +46,14 @@ let Raw = React.createClass({
 
     editContent(e) {
         this.setState({editing: true});
+
+        let self = this;
+
+        setTimeout(function() {
+            React.findDOMNode(self.refs.editInput).focus();
+        }, 0);
+
+        // React.findDOMNode(this.refs.editInput).focus();
     },
 
     destroy(e) {
@@ -58,7 +66,8 @@ let Raw = React.createClass({
         let props = this.props;
         let val = e.target.value;
 
-        this.refs.todo.getDOMNode().classList.remove('editing');
+        this.setState({editing: false});
+        // this.refs.todo.getDOMNode().classList.remove('editing');
 
         props.updateItem && props.updateItem(props.id, 'content', val);
     }

@@ -2,7 +2,7 @@
 * @Author: dmyang
 * @Date:   2015-07-31 13:47:50
 * @Last Modified by:   dmyang
-* @Last Modified time: 2015-08-01 00:22:07
+* @Last Modified time: 2015-08-01 00:59:55
 */
 
 'use strict';
@@ -14,17 +14,6 @@ import ListView from './listview';
 import Stats from './stats';
 
 var undos = 0;
-var filterTodos = function(todos, flag) {
-    var keys = flag < 0 ? Object.keys(todos) : (flag ? dones : undos);
-
-    keys = Object.keys(todos).sort((a, b) => {
-        return b - a;
-    });
-
-    return keys.map((key) => {
-        return todos[key];
-    });
-};
 
 let App = React.createClass({
     getInitialState() {
@@ -42,8 +31,6 @@ let App = React.createClass({
         let state = this.state;
         let filter = state.filter;
         let todos = state.todos;
-        // let idList = state.idList.sort((a, b) {return b - a;});
-        // let list = filterAndSortTodos(filter);
         let left = undos;
 
         if(!Object.keys(todos).length) return null;
@@ -114,7 +101,6 @@ let App = React.createClass({
             if(value === 1) --undos;
             if(value === 0) ++undos;
         };
-        console.log(id, key, value)
 
         todos[id][key] = value;
         this.setState({todos: todos});
