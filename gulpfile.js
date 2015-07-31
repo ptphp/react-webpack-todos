@@ -2,7 +2,7 @@
 * @Author: dmyang
 * @Date:   2015-06-16 15:19:59
 * @Last Modified by:   dmyang
-* @Last Modified time: 2015-07-31 11:54:21
+* @Last Modified time: 2015-08-01 01:19:44
 */
 
 'use strict';
@@ -43,25 +43,4 @@ gulp.task('default', ['pack'], function() {
             removeComments: true
         }))
         .pipe(gulp.dest(assets));
-});
-
-// @see http://webpack.github.io/docs/webpack-dev-server.html
-gulp.task('dev', function(done) {
-    var compiler = webpack(webpackDevConf);
-    var devSvr = new WebpackDevServer(compiler, {
-        contentBase: webpackConf.output.path,
-        publicPath: webpackDevConf.output.publicPath,
-        hot: true,
-        stats: webpackDevConf.devServer.stats,
-    });
-
-    devSvr.listen(8080, 'localhost', function(err) {
-        if(err) throw new gutil.PluginError('webpack-dev-server', err);
-
-        gutil.log('[webpack-dev-server]',
-            'http://localhost:8080/webpack-dev-server/index.html');
-
-        // keep the devSvr alive
-        // done();
-    });
 });

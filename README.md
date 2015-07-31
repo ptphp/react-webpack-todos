@@ -13,13 +13,14 @@ For developing or debug:
 
 ``` bash
 $ npm install -g node-dev #great tool!
-$ npm run dev
+$ npm run dev # with HMR built in and serve static files with koa framework
 ```
 
 For producting mode:
 
 ``` bash
-$ npm run assets
+$ gulp # webpack package
+$ npm run assets # run on production mode
 ```
 
 Then goto `http://localhost:8080` to see.
