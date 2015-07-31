@@ -2,7 +2,7 @@
 * @Author: dmyang
 * @Date:   2015-07-31 13:47:50
 * @Last Modified by:   dmyang
-* @Last Modified time: 2015-08-01 00:59:55
+* @Last Modified time: 2015-08-01 03:18:52
 */
 
 'use strict';
@@ -23,8 +23,29 @@ let App = React.createClass({
         };
     },
 
-    componentDidMount() {
+    componentWillMount() {
         this.fetch();
+    },
+
+    fetch() {
+        var self = this;
+
+        fetch('/api/list')
+            .then((response) => response.text())
+            .then((response) => {
+                let list = response ? JSON.parse(response) : [];
+                let todos = {};
+
+                list.forEach(function(item) {
+                    if(item.status === 0) ++undos;
+                    todos[item.id] = item;
+                });
+
+                self.setState({todos: todos});
+            })
+            .catch(function(err) {
+                console.error(err);
+            });
     },
 
     render() {
@@ -55,27 +76,6 @@ let App = React.createClass({
                 </footer>
             </div>
         );
-    },
-
-    fetch() {
-        var self = this;
-
-        fetch('/api/list')
-            .then((response) => response.text())
-            .then((response) => {
-                let list = response ? JSON.parse(response) : [];
-                let todos = {};
-
-                list.forEach(function(item) {
-                    if(item.status === 0) ++undos;
-                    todos[item.id] = item;
-                });
-
-                self.setState({todos: todos});
-            })
-            .catch(function(err) {
-                console.error(err);
-            });
     },
 
     addItem(content) {
