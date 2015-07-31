@@ -8,7 +8,6 @@
     "exec_interpreter" : "node",
     "exec_mode": "cluster",
     "max_memory_restart": "50M",
-    "watch": true,
     "env": {
         "NODE_ENV": "production"
     }
