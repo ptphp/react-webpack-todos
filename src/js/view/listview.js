@@ -2,7 +2,7 @@
 * @Author: dmyang
 * @Date:   2015-07-31 14:25:50
 * @Last Modified by:   dmyang
-* @Last Modified time: 2015-07-31 20:22:29
+* @Last Modified time: 2015-08-01 00:24:00
 */
 
 'use strict';
@@ -57,6 +57,8 @@ let Raw = React.createClass({
     editBlur(e) {
         let props = this.props;
         let val = e.target.value;
+
+        this.refs.todo.getDOMNode().classList.remove('editing');
 
         props.updateItem && props.updateItem(props.id, 'content', val);
     }

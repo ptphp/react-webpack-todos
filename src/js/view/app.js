@@ -2,7 +2,7 @@
 * @Author: dmyang
 * @Date:   2015-07-31 13:47:50
 * @Last Modified by:   dmyang
-* @Last Modified time: 2015-07-31 21:14:55
+* @Last Modified time: 2015-08-01 00:22:07
 */
 
 'use strict';
@@ -114,6 +114,7 @@ let App = React.createClass({
             if(value === 1) --undos;
             if(value === 0) ++undos;
         };
+        console.log(id, key, value)
 
         todos[id][key] = value;
         this.setState({todos: todos});
