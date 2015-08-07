@@ -103,6 +103,6 @@ app.use(serve(path.resolve(__dirname, viewDir), {
 
 app = http.createServer(app.callback());
 
-app.listen(8080, function() {
+app.listen(8080, '0.0.0.0', function() {
     console.log('app listen success.');
 });

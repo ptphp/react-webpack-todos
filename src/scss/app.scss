@@ -6,7 +6,7 @@ body {
 $padding-h: .2rem;
 
 .app {
-    margin-top: 3rem;
+    margin-top: 2rem;
 
     h1 {
         text-align: center;
@@ -138,9 +138,6 @@ $padding-h: .2rem;
     box-sizing: border-box;
     padding: .1rem $padding-h;
     color: #999;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
 
     a {
         color: #999;
@@ -158,19 +155,14 @@ $padding-h: .2rem;
     }
 
     .todo-count {
-        // float: left;
-        // position: relative;
-        // z-index: 2;
+        float: left;
         width: .7rem;
     }
 
     .filters {
-        // position: absolute;
-        // left: 0;
-        // right: 0;
-        -webkit-box-flex: 1;
-        box-flex: 1;
-        flex: 1;
+        position: absolute;
+        left: 50%;
+        margin-left: -28%;
         text-align: center;
 
         a {
@@ -187,9 +179,7 @@ $padding-h: .2rem;
     }
 
     .clean {
-        // float: right;
-        // position: relative;
-        // z-index: 2;
+        float: right;
         width: 2.1rem;
     }
 }

@@ -2,7 +2,7 @@
 * @Author: dmyang
 * @Date:   2015-05-18 14:16:41
 * @Last Modified by:   dmyang
-* @Last Modified time: 2015-08-01 01:02:42
+* @Last Modified time: 2015-08-07 13:54:18
 */
 
 'use strict';
@@ -51,7 +51,7 @@ function makeConf(options) {
 
         resolve: {
             // 可以直接使用npm安装依赖，前后端共享module！
-            root: ['./src'],
+            root: ['./src', './node_modules'],
             alias: {},
             extensions: ['', '.js', '.jsx', '.css', '.html', '.png', '.jpg']
         },

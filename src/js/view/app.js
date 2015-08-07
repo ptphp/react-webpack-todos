@@ -2,7 +2,7 @@
 * @Author: dmyang
 * @Date:   2015-07-31 13:47:50
 * @Last Modified by:   dmyang
-* @Last Modified time: 2015-08-01 11:41:51
+* @Last Modified time: 2015-08-07 14:02:06
 */
 
 'use strict';
@@ -28,7 +28,9 @@ let App = React.createClass({
     },
 
     fetch() {
-        var self = this;
+        let self = this;
+
+        if(!('fetch' in window)) require('whatwg-fetch');
 
         fetch('/api/list')
             .then((response) => response.text())

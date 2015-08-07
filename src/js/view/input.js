@@ -2,7 +2,7 @@
 * @Author: dmyang
 * @Date:   2015-07-31 14:10:02
 * @Last Modified by:   dmyang
-* @Last Modified time: 2015-07-31 18:13:00
+* @Last Modified time: 2015-08-07 14:45:03
 */
 
 'use strict';
@@ -37,7 +37,8 @@ let Input = React.createClass({
     render() {
         return (
             <form className="input-form" onSubmit={this.submitHandler}>
-                <input ref="content" placeholder="What needs to be done?" />
+                <input ref="content" onBlur={this.onBlur}
+                    placeholder="What needs to be done?" />
             </form>
         );
     },
@@ -48,6 +49,13 @@ let Input = React.createClass({
         let node = this.refs.content.getDOMNode();
         let content = node.value;
 
+        if(content) this.props.addItem(content);
+        node.value = '';
+    },
+
+    onBlur(e) {
+        let node = e.target;
+        let content = e.target.value;
         if(content) this.props.addItem(content);
         node.value = '';
     }
