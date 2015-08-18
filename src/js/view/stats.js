@@ -2,7 +2,7 @@
 * @Author: dmyang
 * @Date:   2015-07-31 18:39:12
 * @Last Modified by:   dmyang
-* @Last Modified time: 2015-08-01 01:56:44
+* @Last Modified time: 2015-08-18 21:47:16
 */
 
 'use strict';
@@ -30,7 +30,7 @@ let Stats = React.createClass({
     },
 
     onSelect(e) {
-        var flag = e.target.getAttribute('data-filter');
+        let flag = e.target.getAttribute('data-filter');
 
         this.props.setFilter(flag - 0);
     }

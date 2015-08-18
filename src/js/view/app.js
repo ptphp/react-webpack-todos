@@ -2,7 +2,7 @@
 * @Author: dmyang
 * @Date:   2015-07-31 13:47:50
 * @Last Modified by:   dmyang
-* @Last Modified time: 2015-08-07 14:02:06
+* @Last Modified time: 2015-08-18 21:46:52
 */
 
 'use strict';
@@ -13,7 +13,7 @@ import Input from './input';
 import ListView from './listview';
 import Stats from './stats';
 
-var undos = 0;
+let undos = 0;
 
 let App = React.createClass({
     getInitialState() {
